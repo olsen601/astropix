@@ -26,7 +26,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-var mongo_url = process.env.Mongo_URL3;
+var db_url = process.env.MONGO_URL6;
+
+mongoose.Promise = global.Promise;
+mongoose.connect(db_url, { useMongoClient: true})
+  .then( () => { console.log('Connected to MongoDB') } )
+  .catch( (err) => {console.log('Error Connecting to MongoDB', err); });
 
 //stores cookies in database
 var store = new MongoDBStore({ uri: mongo_url, collection: 'sessions'}, function(err) {
