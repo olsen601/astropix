@@ -35,7 +35,7 @@ mongoose.connect(db_url, { useMongoClient: true})
   .catch( (err) => {console.log('Error Connecting to MongoDB', err); });
 
 //stores cookies in database
-var store = new MongoDBStore({ uri: mongo_url, collection: 'sessions'}, function(err) {
+var store = new MongoDBStore({ uri: db_url, collection: 'sessions'}, function(err) {
   if(err) {
     console.log("Error, can't connect to MongoDB to store sessions");
   }
