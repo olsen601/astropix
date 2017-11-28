@@ -7,7 +7,7 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   res.redirect('fetch_picture');
 });
-
+/* Gets a picture from api  or returns an error */
 router.get('/fetch_picture', function(req, res, next){
 
 
